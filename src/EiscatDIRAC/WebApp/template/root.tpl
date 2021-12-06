@@ -21,14 +21,14 @@
 
     <link rel="stylesheet" type="text/css" href="{{base_url}}/static/core/css/css.css" />
     <link rel="stylesheet" type="text/css" href="{{base_url}}/static/core/css/iconset.css" />
-    <link rel="stylesheet" type="text/css" href="{{base_url}}/static/core/css/tabtheme.css" />    
- 
+    <link rel="stylesheet" type="text/css" href="{{base_url}}/static/core/css/tabtheme.css" />
+
     {% autoescape None %}
     <!-- GC -->
 
     <!-- <x-compile> -->
     <!-- <x-bootstrap> -->
-	
+
     {% if _dev %}
       {% if debug_level=='debug' %}
         <script type="text/javascript" src="{{base_url}}/static/extjs/ext-all-debug.js"></script>
@@ -40,14 +40,14 @@
       <script type="text/javascript" src="{{base_url}}/static/extjs/ext-all.js"></script>
       <script type="text/javascript" src="{{base_url}}/static/core/build/all-classes.js"></script>
     {% end %}
-    
+
     <script type="text/javascript" src="{{base_url}}/static/extjs/packages/charts/classic/charts.js"></script>
     <link rel="stylesheet" type="text/css"  href="{{base_url}}/static/extjs/packages/charts/classic/classic/resources/charts-all.css">
-    
+
     <!-- </x-bootstrap> -->
     <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart","annotatedtimeline"]});
-      
+
       //Wrap console.log if it does not exist
       if (typeof console == "undefined") {
         window.console = {
@@ -68,7 +68,7 @@
             'Ext.dirac.views': '{{base_url}}/static/core/js/views',
             'Ext.dirac.utils': '{{base_url}}/static/core/js/utils',
             'Ext.ux.form':'{{base_url}}/static/extjs/{{ext_version}}/packages/ux/classic/src/form',
-            'Ext.ux':'{{base_url}}/static/extjs/{{ext_version}}/packages/ux/classic/src'            
+            'Ext.ux':'{{base_url}}/static/extjs/{{ext_version}}/packages/ux/classic/src'
           });
 
           Ext.require(['Ext.dirac.core.App','Ext.*']);
@@ -168,7 +168,7 @@
         </table>
       </div>
   </div>
-  
+
   {{welcome}}
 
 </body>
