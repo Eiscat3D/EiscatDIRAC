@@ -4,11 +4,6 @@
 default_language_version:
   python: python3.9
 
-exclude: |
-  (?x)^(
-      src/WebAppDIRAC/WebApp/static/core/pictos/
-  ).*$
-
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
