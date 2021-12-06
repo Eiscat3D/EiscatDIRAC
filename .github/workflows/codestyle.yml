@@ -42,4 +42,4 @@ jobs:
           environment-file: .DIRAC/environment.yml
 
       - name: Run tests
-        run: pylint -E src/EiscatDIRAC
+        run: pip install webappdirac && pylint -E src/EiscatDIRAC
