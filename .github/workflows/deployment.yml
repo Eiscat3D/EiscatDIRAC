@@ -1,0 +1,29 @@
+name: Deployment
+
+on:
+  push:
+    tags:
+  pull_request:
+
+jobs:
+  deploy-pypi:
+    name: PyPI deployment
+    runs-on: "ubuntu-latest"
+    if: github.event_name != 'push' || github.repository == 'Eiscat3D/EiscatDIRAC'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+      - name: Install dependencies
+        run: pip install build readme_renderer
+      - name: Validate README for PyPI
+        run: python -m readme_renderer README.rst -o /tmp/README.html
+      - name: Build distributions
+        run: python -m build
+      - name: Publish package on PyPI
+        if: github.event_name == 'push'
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
