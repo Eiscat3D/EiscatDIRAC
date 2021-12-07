@@ -1,15 +1,14 @@
 name: Deployment
 
 on:
-  push:
-    tags:
+  release:
+    types: [published]
   pull_request:
 
 jobs:
   deploy-pypi:
     name: PyPI deployment
     runs-on: "ubuntu-latest"
-    if: github.event_name != 'push' || github.repository == 'Eiscat3D/EiscatDIRAC'
     steps:
       - uses: actions/checkout@v2
         with:
@@ -24,7 +23,7 @@ jobs:
       - name: Build distributions
         run: python -m build
       - name: Publish package on PyPI
-        if: github.event_name == 'push'
+        if: github.event_name == 'published'
         uses: pypa/gh-action-pypi-publish@master
         with:
           user: __token__
