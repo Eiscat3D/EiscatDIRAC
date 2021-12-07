@@ -12,6 +12,8 @@ jobs:
     if: github.event_name != 'push' || github.repository == 'Eiscat3D/EiscatDIRAC'
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
