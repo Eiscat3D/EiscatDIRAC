@@ -23,7 +23,7 @@ jobs:
       - name: Build distributions
         run: python -m build
       - name: Publish package on PyPI
-        if: github.event_name == 'published'
+        if: github.event_name == 'release'
         uses: pypa/gh-action-pypi-publish@master
         with:
           user: __token__
